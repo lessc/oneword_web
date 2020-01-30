@@ -1,8 +1,17 @@
-from flask import Flask, escape, request
+from flask import Flask, jsonify
 
 app = Flask(__name__)
 
 @app.route('/')
 def index():
-  name = request.args.get("name", "World")
-  return f'Hello, {escape(name)}!'
+  return 'Hello, World!'
+
+
+@app.route('/api/books')
+def books():
+  books = [
+    {'name': 'Python', 'price': 100},
+    {'name': 'Python', 'price': 100},
+    {'name': 'Python', 'price': 100}
+  ]
+  return jsonify(books)

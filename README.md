@@ -21,3 +21,8 @@ pipenv shell
 
 bin/start
 ```
+
+
+## 资源
+
+- [Flask QuickStart](https://flask.palletsprojects.com/en/1.1.x/quickstart/)
