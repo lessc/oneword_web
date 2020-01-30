@@ -8,6 +8,8 @@ pylint = "*"
 
 [packages]
 flask = "==1.1"
+setuptools = "*"
+flasgger = "*"
 
 [requires]
 python_version = "3.7"

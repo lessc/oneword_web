@@ -25,4 +25,5 @@ bin/start
 
 ## 资源
 
+- [pipenv使用指南](https://crazygit.wiseturtles.com/2018/01/08/pipenv-tour/)
 - [Flask QuickStart](https://flask.palletsprojects.com/en/1.1.x/quickstart/)
