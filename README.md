@@ -22,6 +22,12 @@ pipenv shell
 bin/start
 ```
 
+3. 访问页面
+
+```shell
+http://127.0.0.1:5000/
+http://127.0.0.1:5000/apidocs
+```
 
 ## 资源
 
