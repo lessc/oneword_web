@@ -1,3 +1,5 @@
 #!/bin/bash
 
-python oneword/app.py
+export FLASK_APP=oneword
+export FLASK_ENV=development
+python -m flask run
