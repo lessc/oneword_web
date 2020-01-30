@@ -6,6 +6,7 @@
 
 ```shell
 brew install pipenv
+# brew upgrade pipenv  # 升级
 ```
 
 2. 初始化应用和启动
@@ -18,7 +19,5 @@ cd oneword_web
 pipenv install
 pipenv shell
 
-python app.py
+bin/start
 ```
-
-
