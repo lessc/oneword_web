@@ -5,8 +5,11 @@ from flask import (
 )
 from flasgger import Swagger
 
-
-app = Flask(__name__, template_folder="")
+app = Flask(__name__, template_folder="oneword/templates")
+app.config['SWAGGER'] = {
+  'title': 'OneWord APIs',
+  'version': '0.1'
+}
 Swagger(app)
 
 
@@ -21,7 +24,7 @@ def books():
   ---
   responses:
     200:
-      description: A list of colors (may be filtered by palette)
+      description: 'success'
   """
   books = [
     {'name': 'Python', 'price': 100},
