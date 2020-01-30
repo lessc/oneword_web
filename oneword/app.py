@@ -5,9 +5,11 @@ from flask import (
 )
 from flasgger import Swagger
 
-app = Flask(__name__, template_folder="oneword/templates")
+APP_NAME = 'OneWord'
+
+app = Flask(APP_NAME, template_folder="oneword/templates")
 app.config['SWAGGER'] = {
-  'title': 'OneWord APIs',
+  'title': f'{APP_NAME} APIs',
   'version': '0.1'
 }
 Swagger(app)
@@ -15,7 +17,10 @@ Swagger(app)
 
 @app.route('/')
 def index():
-  return 'Hello, World!'
+  site = {
+    'name': 'OneWord'
+  }
+  return render_template('home/index.html', site=site)
 
 
 @app.route('/api/books')
