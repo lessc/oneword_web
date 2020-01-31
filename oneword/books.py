@@ -1,4 +1,5 @@
 from flask import (
+  request,
   Blueprint,
   jsonify
 )
@@ -15,11 +16,21 @@ def index():
     200:
       description: 'success'
   """
-  books = [
-    {'name': 'Python', 'price': 100},
-    {'name': 'Python', 'price': 100},
-    {'name': 'Python', 'price': 100}
-  ]
+  page = int(request.args.get('page', '1'))
+  limit = 20
+
+  data = (Book.select()
+    .order_by(Book.id.desc())
+    .paginate(page, limit)
+  ).execute()
+  
+  to_json = lambda book: ({
+    'id': book.id,
+    'name': book.name,
+    'price': book.price
+  })
+
+  books = list(map(to_json, data))
   return jsonify(books)
 
 @app.route('/', methods=['POST'])
