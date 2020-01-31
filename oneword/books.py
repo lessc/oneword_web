@@ -4,6 +4,8 @@ from flask import (
   jsonify
 )
 from oneword.models.book import Book
+from playhouse.shortcuts import model_to_dict
+
 
 app = Blueprint('books', __name__, url_prefix='/api/books')
 
@@ -23,13 +25,8 @@ def index():
     .order_by(Book.id.desc())
     .paginate(page, limit)
   ).execute()
-  
-  books = [{
-    'id': book.id,
-    'name': book.name,
-    'price': book.price
-  } for book in data]
 
+  books = list(map(model_to_dict, data))
   return jsonify(books)
 
 @app.route('/', methods=['POST'])
@@ -56,11 +53,13 @@ def save():
       description: 'success'
   """
 
-  name = request.form.get('name');
-  price = request.form.get('price');
-  book = {'name': name, 'price': price}
-
-  return success(book)
+  param = request.json
+  book = Book(name=param['name'], price=param['price'])
+  success = book.save()
+  if (success):
+    return jsonify({'success': True, 'data': model_to_dict(book)})
+  else:
+    return jsonify({'success': False, 'message': '保存失败'})
 
 @app.route('/<id>', methods=['DELETE'])
 def delete(id):
@@ -75,7 +74,5 @@ def delete(id):
     200:
       description: 'success'
   """
-  return success()
-
-def success(data = None):
-  return jsonify({'success': True, 'data': data})
+  success = Book.delete_by_id(id) > 0
+  return jsonify({'success': success})
