@@ -29,6 +29,8 @@ http://127.0.0.1:5000/
 http://127.0.0.1:5000/apidocs
 ```
 
+[开发环境db信息](https://github.com/lessc/oneword_web/blob/master/oneword/models/__init__.py#L9)
+
 ## 资源
 
 - [pipenv使用指南](https://crazygit.wiseturtles.com/2018/01/08/pipenv-tour/)
