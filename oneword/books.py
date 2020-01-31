@@ -2,7 +2,6 @@ from flask import (
   Blueprint,
   jsonify
 )
-from oneword.models import db
 from oneword.models.book import Book
 
 app = Blueprint('books', __name__, url_prefix='/api/books')
@@ -16,7 +15,6 @@ def index():
     200:
       description: 'success'
   """
-  db.connect()
   books = [
     {'name': 'Python', 'price': 100},
     {'name': 'Python', 'price': 100},

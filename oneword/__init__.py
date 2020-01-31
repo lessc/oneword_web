@@ -5,6 +5,7 @@ from flask import (
   render_template
 )
 from flasgger import Swagger
+from oneword.models import db
 
 
 def create_app():
@@ -18,6 +19,9 @@ def create_app():
   }
   Swagger(app)
 
+  app.before_request(lambda: before_request(app))
+  app.teardown_request(lambda ex: teardown_request(app, ex))
+
   from oneword import site
   app.register_blueprint(site.app)
 
@@ -25,3 +29,10 @@ def create_app():
   app.register_blueprint(books.app)
 
   return app
+
+
+def before_request(app):
+  db.connect()
+
+def teardown_request(app, ex):
+  db.close()
