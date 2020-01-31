@@ -32,4 +32,22 @@ def save():
     200:
       description: 'success'
   """
-  return jsonify({'success': True})
+  return success()
+
+@app.route('/<id>', methods=['DELETE'])
+def delete(id):
+  """删除一本书
+  ---
+  parameters:
+    - name: id
+      in: path
+      type: string
+      required: true
+  responses:
+    200:
+      description: 'success'
+  """
+  return success()
+
+def success(data = None):
+  return jsonify({'success': True, 'data': data})
