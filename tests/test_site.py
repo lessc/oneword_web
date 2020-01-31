@@ -1,5 +1,4 @@
 import pytest
 
-
-def test():
+def test_index():
   assert True
