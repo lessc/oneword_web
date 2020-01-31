@@ -1,4 +1,5 @@
 from flask import (
+  g,
   Flask,
   jsonify,
   render_template

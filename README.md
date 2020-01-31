@@ -32,5 +32,4 @@ http://127.0.0.1:5000/apidocs
 ## 资源
 
 - [pipenv使用指南](https://crazygit.wiseturtles.com/2018/01/08/pipenv-tour/)
-- [Flask QuickStart](https://flask.palletsprojects.com/en/1.1.x/quickstart/)
-- [Flask Tutorial](https://flask.palletsprojects.com/en/1.1.x/tutorial/)
+- [Flask文档](https://flask.palletsprojects.com/en/1.1.x/)

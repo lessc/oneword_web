@@ -10,6 +10,8 @@ pylint = "*"
 flask = "*"
 setuptools = "*"
 flasgger = "*"
+peewee = "*"
+pymysql = "*"
 
 [requires]
 python_version = "3.7"
