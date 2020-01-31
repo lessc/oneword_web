@@ -1,4 +1,4 @@
 import pytest
 
-def test_index():
-  assert True
+def test():
+  assert 1 + 1 == 2
