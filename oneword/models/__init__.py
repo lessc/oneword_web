@@ -6,10 +6,10 @@ from peewee import (
   DateTimeField
 )
 
-HOST = '127.0.0.1'
-PORT = 3306
+HOST = '47.97.198.228'
+PORT = 10008
 USER = 'root'
-PASS = 'root'
+PASS = 'xpMft-Tfb_s8hcY@RyA:'
 DB = 'oneword_dev'
 
 db = MySQLDatabase(DB, host=HOST, port=PORT, user=USER, password=PASS)
