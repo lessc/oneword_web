@@ -24,13 +24,12 @@ def index():
     .paginate(page, limit)
   ).execute()
   
-  to_json = lambda book: ({
+  books = [{
     'id': book.id,
     'name': book.name,
     'price': book.price
-  })
+  } for book in data]
 
-  books = list(map(to_json, data))
   return jsonify(books)
 
 @app.route('/', methods=['POST'])
