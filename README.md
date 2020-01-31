@@ -36,4 +36,4 @@ http://127.0.0.1:5000/apidocs
 - [pipenv使用指南](https://crazygit.wiseturtles.com/2018/01/08/pipenv-tour/)
 - [Flask文档](https://flask.palletsprojects.com/en/1.1.x/)
 - [peewee数据库操作](http://docs.peewee-orm.com/en/latest/peewee/quickstart.html)
-- [Swagger编写示例](https://github.com/flasgger/flasgger#using-docstrings-as-specification)
+- [Swagger编写示例](https://github.com/flasgger/flasgger/tree/master/examples)

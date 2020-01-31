@@ -36,19 +36,39 @@ def index():
 def save():
   """创建一本书
   ---
+  parameters: 
+    - in: body
+      name: body
+      schema:
+        id: Book
+        required:
+          - name
+          - price
+        properties:
+          name:
+            type: string
+            description: 书名
+          price:
+            type: number
+            description: 价格
   responses: 
     200:
       description: 'success'
   """
-  return success()
+
+  name = request.form.get('name');
+  price = request.form.get('price');
+  book = {'name': name, 'price': price}
+
+  return success(book)
 
 @app.route('/<id>', methods=['DELETE'])
 def delete(id):
   """删除一本书
   ---
   parameters:
-    - name: id
-      in: path
+    - in: path
+      name: id
       type: string
       required: true
   responses:
